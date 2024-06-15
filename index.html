@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Opera: The Techniques & Styles of Nineteenth-Century Composers</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        img {
+            max-width: 50%; /* Adjust this value to scale down the images */
+            height: auto; /* Maintain aspect ratio */
+        }
+        /* Responsive sidebar */
+        #sidebar {
+            width: 250px;
+            height: 100%;
+            overflow-y: auto;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+        #sidebar.active {
+            left: 0;
+        }
+        #content {
+            transition: all 0.3s;
+        }
+        #content.active {
+            margin-left: 250px;
+        }
+        @media (max-width: 768px) {
+            #content.active {
+                margin-left: 0;
+            }
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .title {
+            margin-left: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar-container"></div>
+
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                ☰
+            </button>
+            <div class="title">Romantic Opera</div>
+        </nav>
+        <div class="container" id="container">
+            <h2>Introduction</h2>
+            <p>This book is a work in progress.</p>
+            <p>If the sidebar doesn't load, <b><a href="sidebar.html">click here for the Table of Contents</a></b>.</p>
+            <p>—Victor</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Function to load HTML content
+        function loadHTML(url, elementId) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                    // Initialize Bootstrap's collapse plugin for dynamically loaded content
+                    $(document).ready(function() {
+                        $('[data-toggle="collapse"]').collapse();
+                    });
+                })
+                .catch(error => console.error('Error loading HTML:', error));
+        }
+
+        // Load the sidebar
+        loadHTML('sidebar.html', 'sidebar-container');
+
+        // Toggle sidebar
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('sidebarCollapse').addEventListener('click', function() {
+                document.getElementById('sidebar').classList.toggle('active');
+                document.getElementById('content').classList.toggle('active');
+            });
+        });
+
+        // Function to scroll to the bottom of the sidebar
+        function scrollToBottom() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.scrollTop = sidebar.scrollHeight;
+        }
+
+        function loadContent(url, containerId) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(containerId).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading content:', error));
+        }
+    </script>
+</body>
+</html>
