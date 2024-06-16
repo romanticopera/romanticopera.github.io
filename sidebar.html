@@ -40,6 +40,12 @@
     display: block;
 }
 
+/* Level 5 */
+#sidebar .list-unstyled ul ul ul ul > li > a {
+    padding: 3px 50px;
+    display: block;
+}
+
 /* Collapsed state styling */
 #sidebar .list-unstyled ul.collapse:not(.show) {
     display: none;
@@ -78,8 +84,6 @@
         <li class="active">
            <a href="index.html" aria-expanded="false">Home</a></li>
         <li class="active">
-             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">-</a></i>
-        <li class="active">
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Music</a>
             <ul class="list-unstyled" id="homeSubmenu"> 
                 <li>
@@ -97,34 +101,49 @@
                                 <li><a href="#">The Voice</a></li>
                                 <li><a href="#">First-Inversion Triads</a></li>
                                 <li><a href="#">Exercise: First-Inversion Triads</a></li>
+                                <li><a href="#">Second-Inversion Triads</a></li>
+                                <li><a href="#">Exercise: Second-Inversion Triads</a></li>
                                 <li><a href="#" onclick="loadHTML('Seventh Chords.html', 'container')">Seventh Chords</a></li>
+                                <li><a href="#">Exercise: Seventh Chords</a></li>
+                                <li><a href="#">Ninth Chords</a></li>
+                                <li><a href="#">Exercise: Ninth Chords</a></li>
+                                <li><a href="#">Other Chords</a></li>
+                                <li><a href="#">Exercise: The Flying Dutchman</a></li>
+                                <li><a href="#">Short Tutti Chords</a></li>
+                                <li><a href="#">Soft Tutti Chords</a></li>
+                                <li><a href="#">Exercise: Liszt</a></li>
+                                <li><a href="#">Quasi-Tutti Chords</a></li>
+                            <li><a href="#subMenu1_5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Strings in Tutti Chords</a></li>
+                            <ul class="list-unstyled" id="subMenu1_5">
+                                 <li><a href="#">Sustained Chords</a></li>
+                                <li><a href="#">Runs & Figuration</a></li>
+</ul></li>
+                                <li><a href="#">Accenting</a></li>
+                            <li><a href="#subMenu1_6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Percussion in Tutti Chords</a></li>
+                            <ul class="list-unstyled" id="subMenu1_6">
+                                <li><a href="#">Harp</a></li>
+                                <li><a href="#">Timpani</a></li>
+</ul></li>
+                            <li><a href="#subMenu1_7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ending a Tutti Chord</a></li>
+                            <ul class="list-unstyled" id="subMenu1_7">
+                                <li><a href="#">Echoing</a></li>
+                                <li><a href="#">Tapering</a></li>
+</ul></li>
+                            <li><a href="#subMenu1_8" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Entering a Tutti Chord</a></li>
+                            <ul class="list-unstyled" id="subMenu1_8">
+                                <li><a href="#">Gradual Crescendo</a></li>
+</ul></li>
+                                <li><a href="#">Exercises: Tapering, Echoing, and Accenting</a></li>
+                                <li><a href="#">Conclusion</a></li>
+                                <li><a href="#">Further Examples</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">-</a></li>
                     </ul>
                 </li>
-                <li><a href="#">-</a></li>
             </ul>
         </li>
         <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">-</a>
-            <ul class="list-unstyled" id="pageSubmenu"> 
-                <li>
-                    <a href="#">-</a>
-                </li>
-                <li>
-                    <a href="#">-</a>
-                </li>
-                <li>
-                    <a href="#">-</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">About</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
+            <a href="#">Scores (IMSLP Links)</a>
         </li>
     </ul>
 </nav>
