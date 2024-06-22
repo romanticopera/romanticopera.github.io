@@ -6,11 +6,6 @@
     <title>Romantic Opera: The Techniques & Styles of Nineteenth-Century Composers</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        img {
-            max-width: 50%; /* Adjust this value to scale down the images */
-            height: auto; /* Maintain aspect ratio */
-        }
-        /* Responsive sidebar */
         #sidebar {
             width: 250px;
             height: 100%;
@@ -21,6 +16,19 @@
             transition: all 0.3s;
             background: #f8f9fa;
         }
+img {
+    max-height: 95vh;
+    width: auto;
+}
+p strong {
+  display: block;
+  margin-top: 1.5em;
+  margin-bottom: -1em;
+}
+img {
+  margin-top: -.5em;
+  margin-bottom: -.5em;
+}
         #sidebar.active {
             left: 0;
         }
@@ -30,10 +38,6 @@
         #content.active {
             margin-left: 250px;
         }
-        @media (max-width: 768px) {
-            #content.active {
-                margin-left: 0;
-            }
         }
         .navbar {
             display: flex;
@@ -43,6 +47,14 @@
             margin-left: 15px;
             font-size: 24px;
             font-weight: bold;
+        }
+        .title-container {
+            display: flex;
+            align-items: baseline; /* Aligns the subtitle with the title's baseline */
+        }
+        .subtitle {
+            font-size: 0.8rem; /* Adjust the subtitle font size */
+            margin-left: 5px; /* Adds space between the title and subtitle */
         }
     </style>
 </head>
@@ -54,11 +66,13 @@
             <button type="button" id="sidebarCollapse" class="btn btn-info">
                 ☰
             </button>
-            <div class="title">Romantic Opera</div>
+    <div class="title-container">
+        <div class="title">Romantic Opera: </div>
+        <div class="subtitle"> The Techniques & Styles of Nineteenth-Century Composers</div>
+    </div>
         </nav>
         <div class="container" id="container">
-            <p>This book is a work in progress. I intend to add more chapters as time permits.</p>
-            <p>If the sidebar doesn't load, <b><a href="sidebar.html">click here for the Table of Contents</a></b>.</p>
+            <p>This site is a work in progress. I intend to add more sections as time permits.</p>
             <p>—Victor</p>
         </div>
     </div>
