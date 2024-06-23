@@ -48,25 +48,23 @@ img {
             font-size: 24px;
             font-weight: bold;
         }
-.navbar-content {
-  display: flex;
-  align-items: flex-start;
-    flex-wrap: wrap;
-}
+    .navbar-content {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
         .title-container {
             display: flex;
             flex-direction: column;
-            justify-content: left;
-            align-items: baseline; /* Aligns the subtitle with the title's baseline */
+            justify-content: flex-start;
+            align-items: flex-start; /* Aligns the subtitle with the title's baseline */
             margin-top:-5px;
         }
         .subtitle {
             font-size: 14px;
             margin-top: -3px;
-            flex-direction: column;
-            justify-content: left;
-            align-items: baseline; /* Aligns the subtitle with the title's baseline */
-        }
+            margin-left: 15px; /* Added margin-left for consistent alignment */
+    }
     </style>
 </head>
 <body>
