@@ -77,22 +77,38 @@
             font-weight: bold;
            margin-bottom: 0px;
         }
+#sidebar .list-unstyled li.nolink,
+#sidebar .list-unstyled li.nolink:hover,
+#sidebar .list-unstyled li.nolink:focus {
+    font-size: 14px;
+    padding: 3px 10px;
+    cursor: default;
+    border-bottom: 1px solid #dee2e6;
+    text-decoration: none;
+}
+#sidebar .list-unstyled li.nolink {
+    transition: none;
+}
 </style>
 <nav id="sidebar" class="bg-light border-right">
     <div class="sidebar-header"><h4>Table of Contents</h4></div>
     <ul class="list-unstyled components">
         <li class="active">
-           <a href="index.html" aria-expanded="false"><u><b>Home</b></u></a></li>
+           <a href="index.html"><u><b>Home</b></u></a>
+        </li>
+        <li class="nolink">
+           <u><b>Part I: Libretto</b></u>
+        </li>
         <li class="active">
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><u><b>Music</b></u></a>
-            <ul class="list-unstyled" id="homeSubmenu"> 
+            <a href="#homeSubmenu" data-bs-toggle="collapse" data-bs-target="#homeSubmenu" aria-expanded="true" class="dropdown-toggle"><u><b>Part II: Music</b></u></a>
+            <ul class="collapse show list-unstyled" id="homeSubmenu"> 
                 <li>
-                    <a href="#subMenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><u><b>Orchestration</b></u></a>
-                    <ul class="list-unstyled" id="subMenu1"> 
+                    <a href="#subMenu1" data-bs-toggle="collapse" data-bs-target="#subMenu1" aria-expanded="true" class="dropdown-toggle"><u><b>Orchestration</b></u></a>
+                    <ul class="collapse show list-unstyled" id="subMenu1"> 
                         <li>
-                            <a href="#subMenu1_1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><u><b>Tutti Chords</b></u></a>
-                            <ul class="list-unstyled" id="subMenu1_1">
-                                <li><a href="#" onclick="loadHTML('tuttichords/1-introduction.html', 'container')">Introduction</a></li>
+                            <a href="#subMenu1_1" data-bs-toggle="collapse" data-bs-target="#subMenu1_1" aria-expanded="true" class="dropdown-toggle"><u><b>Tutti Chords</b></u></a>
+                            <ul class="collapse show list-unstyled" id="subMenu1_1">
+                                <li><a href="#" onclick="loadHTML('tuttichords/1-introduction.html', 'container')">Introduction</a></li>                             
                                 <li><a href="#" onclick="loadHTML('tuttichords/2-orchestrating-tutti-chords.html', 'container')">Orchestrating Tutti Chords</a></li>
                                 <li><a href="#">Exercise: Wind Voicing</a></li>
                                 <li><a href="#">Trumpets & Trombones</a></li>
@@ -110,27 +126,26 @@
                                 <li><a href="#">Other Chords</a></li>
                                 <li><a href="#">Exercise: <i>The Flying Dutchman</i></a></li>
                                 <li><a href="#">Short Tutti Chords</a></li>
-                                <li><a href="#">Soft Tutti Chords</a></li>
                                 <li><a href="#">Exercise: Liszt Sonata</a></li>
                                 <li><a href="#">Quasi-Tutti Chords</a></li>
-                            <li><a href="#subMenu1_5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Strings in Tutti Chords</a></li>
-                            <ul class="list-unstyled" id="subMenu1_5">
+                            <li><a href="#subMenu1_5" data-bs-toggle="collapse" data-bs-target="#subMenu1_5" aria-expanded="true" class="dropdown-toggle">Strings in Tutti Chords</a></li>
+                            <ul class="collapse show list-unstyled" id="subMenu1_5">
                                  <li><a href="#">Sustained Chords</a></li>
                                 <li><a href="#">Runs & Figuration</a></li>
 </ul></li>
                                 <li><a href="#">Accenting</a></li>
-                            <li><a href="#subMenu1_6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Percussion in Tutti Chords</a></li>
-                            <ul class="list-unstyled" id="subMenu1_6">
+                            <li><a href="#subMenu1_6" data-bs-toggle="collapse" data-bs-target="#subMenu1_6" aria-expanded="true" class="dropdown-toggle">Percussion in Tutti Chords</a></li>
+                            <ul class="collapse show list-unstyled" id="subMenu1_6">
                                 <li><a href="#">Harp</a></li>
                                 <li><a href="#">Timpani</a></li>
 </ul></li>
-                            <li><a href="#subMenu1_7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ending a Tutti Chord</a></li>
-                            <ul class="list-unstyled" id="subMenu1_7">
+                            <li><a href="#subMenu1_7" data-bs-toggle="collapse" data-bs-target="#subMenu1_7" aria-expanded="true" class="dropdown-toggle">Ending a Tutti Chord</a></li>
+                            <ul class="collapse show list-unstyled" id="subMenu1_7">
                                 <li><a href="#">Echoing</a></li>
                                 <li><a href="#">Tapering</a></li>
 </ul></li>
-                            <li><a href="#subMenu1_8" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Entering a Tutti Chord</a></li>
-                            <ul class="list-unstyled" id="subMenu1_8">
+                            <li><a href="#subMenu1_8" data-bs-toggle="collapse" data-bs-target="#subMenu1_8" aria-expanded="true" class="dropdown-toggle">Entering a Tutti Chord</a></li>
+                            <ul class="collapse show list-unstyled" id="subMenu1_8">
                                 <li><a href="#">Gradual Crescendo</a></li>
 </ul></li>
                                 <li><a href="#">Exercises: Tapering, Echoing, and Accenting</a></li>

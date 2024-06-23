@@ -41,7 +41,8 @@ img {
         }
         .navbar {
             display: flex;
-            align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
         }
         .navbar .title {
             margin-left: 15px;
@@ -50,11 +51,12 @@ img {
         }
         .title-container {
             display: flex;
+    flex-direction: column;
             align-items: baseline; /* Aligns the subtitle with the title's baseline */
         }
         .subtitle {
-            font-size: 0.8rem; /* Adjust the subtitle font size */
-            margin-left: 5px; /* Adds space between the title and subtitle */
+            font-size: 0.75rem;
+            margin-top: -3px;
         }
     </style>
 </head>
@@ -77,49 +79,41 @@ img {
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        // Function to load HTML content
-        function loadHTML(url, elementId) {
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
-                    // Initialize Bootstrap's collapse plugin for dynamically loaded content
-                    $(document).ready(function() {
-                        $('[data-toggle="collapse"]').collapse();
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Function to load HTML content
+function loadHTML(url, elementId) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+
+            // Initialize collapse for dynamically loaded content
+            document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function (collapseElement) {
+                collapseElement.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    var target = this.getAttribute('data-bs-target') || this.getAttribute('href');
+                    var bsCollapse = new bootstrap.Collapse(document.querySelector(target), {
+                        toggle: true
                     });
-                })
-                .catch(error => console.error('Error loading HTML:', error));
-        }
-
-        // Load the sidebar
-        loadHTML('sidebar.html', 'sidebar-container');
-
-        // Toggle sidebar
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('sidebarCollapse').addEventListener('click', function() {
-                document.getElementById('sidebar').classList.toggle('active');
-                document.getElementById('content').classList.toggle('active');
+                });
             });
-        });
+        })
+        .catch(error => console.error('Error loading HTML:', error));
+}
 
-        // Function to scroll to the bottom of the sidebar
-        function scrollToBottom() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.scrollTop = sidebar.scrollHeight;
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    loadHTML('sidebar.html', 'sidebar-container');
 
-        function loadContent(url, containerId) {
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(containerId).innerHTML = data;
-                })
-                .catch(error => console.error('Error loading content:', error));
-        }
-    </script>
+    // Toggle sidebar
+    document.getElementById('sidebarCollapse').addEventListener('click', function() {
+        document.getElementById('sidebar').classList.toggle('active');
+        document.getElementById('content').classList.toggle('active');
+    });
+});
+</script>
+
 </body>
 </html>
