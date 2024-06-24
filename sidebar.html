@@ -1,7 +1,7 @@
 <style>
 /* Sidebar styling */
 #sidebar {
-    width: 250px;
+    width: 300px;
     height: 100%;
     overflow-y: auto; /* Enable vertical scrolling */
     position: fixed;
@@ -52,12 +52,12 @@
 }
 
 #content {
-    width: calc(100% - 250px);
-    margin-left: 250px;
+    width: calc(100% - 300px);
+    margin-left: 300px;
     transition: all 0.3s;
 }
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -300px;
 }
 #content.active {
     width: 100%;
@@ -108,49 +108,50 @@
                         <li>
                             <a href="#subMenu1_1" data-bs-toggle="collapse" data-bs-target="#subMenu1_1" aria-expanded="true" class="dropdown-toggle"><u><b>Tutti Chords</b></u></a>
                             <ul class="collapse show list-unstyled" id="subMenu1_1">
-                                <li><a href="#" onclick="loadHTML('tuttichords/1-introduction.html', 'container')">Introduction</a></li>                             
-                                <li><a href="#" onclick="loadHTML('tuttichords/2-orchestrating-tutti-chords.html', 'container')">Orchestrating Tutti Chords</a></li>
-                                <li><a href="#">Exercise: Wind Voicing</a></li>
-                                <li><a href="#">Trumpets & Trombones</a></li>
-                                <li><a href="#">Triads in Root Position</a></li>
-                                <li><a href="#">Exercise: Triads in Root Position</a></li>
-                                <li><a href="#">The Voice</a></li>
-                                <li><a href="#">First-Inversion Triads</a></li>
-                                <li><a href="#">Exercise: First-Inversion Triads</a></li>
-                                <li><a href="#">Second-Inversion Triads</a></li>
-                                <li><a href="#">Exercise: Second-Inversion Triads</a></li>
-                                <li><a href="#" onclick="loadHTML('Seventh Chords.html', 'container')">Seventh Chords</a></li>
-                                <li><a href="#">Exercise: Seventh Chords</a></li>
-                                <li><a href="#">Ninth Chords</a></li>
-                                <li><a href="#">Exercise: Ninth Chords</a></li>
-                                <li><a href="#">Other Chords</a></li>
-                                <li><a href="#">Exercise: <i>The Flying Dutchman</i></a></li>
-                                <li><a href="#">Short Tutti Chords</a></li>
-                                <li><a href="#">Exercise: Liszt Sonata</a></li>
-                                <li><a href="#">Quasi-Tutti Chords</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/1-introduction.html', 'container')">1 Introduction</a></li>                             
+                                <li><a href="#" onclick="loadHTML('tuttichords/2-orchestrating-tutti-chords.html', 'container')">2 Orchestrating Tutti Chords</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/3-exercise-wind-voicing.html', 'container')">3 Exercise: Wind Voicing</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/4-trumpets-trombones.html', 'container')">4 Trumpets & Trombones</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/5-triads-in-root-position.html', 'container')">5 Triads in Root Position</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/6-exercise-triads-in-root-position.html', 'container')">6 Exercise: Triads in Root Position</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/7-the-voice.html', 'container')">7 The Voice</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/8-first-inversion-triads.html', 'container')">8 First-Inversion Triads</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/9-exercise-first-inversion-triads.html', 'container')">9 Exercise: First-Inversion Triads</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/10-second-inversion-triads.html', 'container')">10 Second-Inversion Triads</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/11-exercise-second-inversion-triads.html', 'container')">11 Exercise: Second-Inversion Triads</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/12-seventh-chords.html', 'container')">12 Seventh Chords</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/13-exercise-seventh-chords.html', 'container')">13 Exercise: Seventh Chords</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/14-ninth-chords.html', 'container')">14 Ninth Chords</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/15-exercise-ninth-chords.html', 'container')">15 Exercise: Ninth Chords</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/16-other-chords.html', 'container')">16 Other Chords</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/17-exercise-the-flying-dutchman.html', 'container')">17 Exercise: <i>The Flying Dutchman</i></a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/18-short-tutti-chords.html', 'container')">18 Short Tutti Chords</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/19-exercise-orchestrating-liszt.html', 'container')">19 Exercise: Orchestrating Liszt</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/20-quasi-tutti-chords.html', 'container')">20 Quasi-Tutti Chords</a></li>
                             <li><a href="#subMenu1_5" data-bs-toggle="collapse" data-bs-target="#subMenu1_5" aria-expanded="true" class="dropdown-toggle">Strings in Tutti Chords</a></li>
                             <ul class="collapse show list-unstyled" id="subMenu1_5">
-                                 <li><a href="#">Sustained Chords</a></li>
-                                <li><a href="#">Runs & Figuration</a></li>
+                                 <li><a href="#" onclick="loadHTML('tuttichords/21-sustained-chords.html', 'container')">21 Sustained Chords</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/22-runs-arpeggios.html', 'container')">22 Runs & Arpeggios</a></li>
 </ul></li>
-                                <li><a href="#">Accenting</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/23-accenting.html', 'container')">23 Accenting</a></li>
                             <li><a href="#subMenu1_6" data-bs-toggle="collapse" data-bs-target="#subMenu1_6" aria-expanded="true" class="dropdown-toggle">Percussion in Tutti Chords</a></li>
                             <ul class="collapse show list-unstyled" id="subMenu1_6">
-                                <li><a href="#">Harp</a></li>
-                                <li><a href="#">Timpani</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/24-harp.html', 'container')">24 Harp</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/25-timpani.html', 'container')">25 Timpani</a></li>
 </ul></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/26-exercise-orchestrating-vocal-scores.html', 'container')">26 Exercise: Orchestrating Vocal Scores</a></li>
                             <li><a href="#subMenu1_7" data-bs-toggle="collapse" data-bs-target="#subMenu1_7" aria-expanded="true" class="dropdown-toggle">Ending a Tutti Chord</a></li>
                             <ul class="collapse show list-unstyled" id="subMenu1_7">
-                                <li><a href="#">Echoing</a></li>
-                                <li><a href="#">Tapering</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/27-echoing.html', 'container')">27 Echoing</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/28-tapering.html', 'container')">28 Tapering</a></li>
 </ul></li>
                             <li><a href="#subMenu1_8" data-bs-toggle="collapse" data-bs-target="#subMenu1_8" aria-expanded="true" class="dropdown-toggle">Entering a Tutti Chord</a></li>
                             <ul class="collapse show list-unstyled" id="subMenu1_8">
-                                <li><a href="#">Gradual Crescendo</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/29-gradual-crescendo.html', 'container')">29 Gradual Crescendo</a></li>
 </ul></li>
-                                <li><a href="#">Exercises: Tapering, Echoing, and Accenting</a></li>
-                                <li><a href="#">Conclusion</a></li>
-                                <li><a href="#">Further Examples</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/30-exercises-tapering-echoing-accenting.html', 'container')">30 Exercises: Tapering, Echoing, and Accenting</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/31-conclusion.html', 'container')">31 Conclusion</a></li>
+                                <li><a href="#" onclick="loadHTML('tuttichords/32-further-examples.html', 'container')">32 Appendix: Further Examples</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -158,7 +159,7 @@
             </ul>
         </li>
         <li>
-            <a href="#"><u><b>Scores (IMSLP Links)</b></u></a>
+            <a href="#" onclick="loadHTML('tuttichords/33-imslp-links-sources.html', 'container')"><u><b>Scores (IMSLP Links)</b></u></a>
         </li>
     </ul>
 </nav>
