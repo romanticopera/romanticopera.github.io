@@ -129,14 +129,15 @@ img {
     function toggleSidebar() {
         $('#sidebar').toggleClass('active');
         $('#content').toggleClass('active');
+        $('#sidebar-toggle').toggleClass('active');
     }
 
     $(document).ready(function() {
         // Load sidebar
         loadHTML('sidebar.html', 'sidebar-container');
 
-        // Sidebar toggle
-        $(document).on('click', '#sidebarCollapse', toggleSidebar);
+        // Sidebar toggle for both hamburger and arrow
+        $(document).on('click', '#sidebarCollapse, #sidebar-toggle', toggleSidebar);
 
         // Collapse toggle
         $(document).on('click', '[data-bs-toggle="collapse"]', function(e) {
