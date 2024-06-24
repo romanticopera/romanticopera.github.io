@@ -108,35 +108,43 @@ img {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
     // Function to load HTML content
-function loadHTML(url, elementId) {
-    fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById(elementId).innerHTML = data;
+    function loadHTML(url, elementId) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById(elementId).innerHTML = data;
+                reinitializeCollapse();
+            })
+            .catch(error => console.error('Error loading HTML:', error));
+    }
 
-            // Initialize collapse for dynamically loaded content
-            document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function (collapseElement) {
-                collapseElement.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    var target = this.getAttribute('data-bs-target') || this.getAttribute('href');
-                    var bsCollapse = new bootstrap.Collapse(document.querySelector(target), {
-                        toggle: true
-                    });
-                });
-            });
-        })
-        .catch(error => console.error('Error loading HTML:', error));
-}
+    // Function to reinitialize collapse functionality
+    function reinitializeCollapse() {
+        $('.collapse').collapse({
+            toggle: false
+        });
+    }
 
-document.addEventListener('DOMContentLoaded', function() {
-    loadHTML('sidebar.html', 'sidebar-container');
+    // Function to toggle sidebar
+    function toggleSidebar() {
+        $('#sidebar').toggleClass('active');
+        $('#content').toggleClass('active');
+    }
 
-    // Toggle sidebar
-    document.getElementById('sidebarCollapse').addEventListener('click', function() {
-        document.getElementById('sidebar').classList.toggle('active');
-        document.getElementById('content').classList.toggle('active');
+    $(document).ready(function() {
+        // Load sidebar
+        loadHTML('sidebar.html', 'sidebar-container');
+
+        // Sidebar toggle
+        $(document).on('click', '#sidebarCollapse', toggleSidebar);
+
+        // Collapse toggle
+        $(document).on('click', '[data-bs-toggle="collapse"]', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('data-bs-target') || $(this).attr('href');
+            $(target).collapse('toggle');
+        });
     });
-});
 </script>
 
 </body>
