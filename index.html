@@ -77,6 +77,24 @@ img {
             margin-top: -3px;
             margin-left: 15px; /* Added margin-left for consistent alignment */
     }
+	@media (max-width: 768px) {
+    #content {
+        margin-left: 0;
+		width: 98%;
+    }
+    .navbar .title {
+        font-size: 20px;
+    }
+    .subtitle {
+        font-size: 12px;
+    }
+    .container {
+        padding-left: 0px;
+        padding-right: 0px;
+		width: 98%;
+		max-width: none;
+    }
+}
     </style>
 </head>
 <body>
@@ -136,14 +154,32 @@ img {
         // Load sidebar
         loadHTML('sidebar.html', 'sidebar-container');
 
-        // Sidebar toggle for both hamburger and arrow
-        $(document).on('click', '#sidebarCollapse, #sidebar-toggle', toggleSidebar);
+    // Sidebar toggle for both hamburger and arrow
+    $(document).on('click', '#sidebarCollapse, #sidebar-toggle', function() {
+        toggleSidebar();
+        
+        // Close sidebar when clicking outside on mobile
+        if ($(window).width() <= 768) {
+            $('#content').on('click', function() {
+                $('#sidebar').removeClass('active');
+                $('#content').removeClass('active');
+            });
+        }
+    });
 
         // Collapse toggle
         $(document).on('click', '[data-bs-toggle="collapse"]', function(e) {
             e.preventDefault();
             var target = $(this).attr('data-bs-target') || $(this).attr('href');
             $(target).collapse('toggle');
+        });
+
+        // Handle window resize
+        $(window).resize(function() {
+            if ($(window).width() > 768) {
+                $('#sidebar').removeClass('active');
+                $('#content').removeClass('active');
+            }
         });
     });
 </script>
