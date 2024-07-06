@@ -1,26 +1,4 @@
 <style>
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -300px;
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
-    #content {
-        width: 100%;
-        margin-left: 0;
-    }
-    #content.active {
-        margin-left: 0;
-    }
-    #sidebarCollapse {
-        display: block;
-    }
-    #sidebar-toggle {
-        display: none;
-    }
-}
-
 /* Sidebar styling */
 #sidebar {
     width: 300px;
@@ -164,6 +142,26 @@
 
 #sidebar.active + #sidebar-toggle span {
     transform: scaleX(-1);
+	@media (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+        max-width: 300px;
+        left: -100%;
+    }
+    #sidebar.active {
+        left: 0;
+    }
+    #content {
+        width: 100%;
+        margin-left: 0;
+    }
+    #content.active {
+        margin-left: 0;
+    }
+    #sidebar-toggle {
+        display: none;
+    }
+}
 }
 </style>
 <nav id="sidebar" class="bg-light border-right">
