@@ -6,93 +6,98 @@
     <title>Romantic Opera: The Techniques & Styles of Nineteenth-Century Composers</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        #sidebar {
-            width: 300px;
-            height: 100%;
-            overflow-y: auto;
-            position: fixed;
-            top: 0;
-            left: -300px;
-            transition: all 0.3s;
-            background: #f8f9fa;
-        }
-img {
-    max-height: 92vh;
-    width: auto;
-}
-@media (max-width: 900px) {
-    #content {
-        margin-left: 0;
+<style>
+    #sidebar {
+        width: 300px;
+        height: 100%;
+        overflow-y: auto;
+        position: fixed;
+        top: 0;
+        left: -300px;
+        transition: all 0.3s;
+        background: #f8f9fa;
+        z-index: 1000;
     }
-    .navbar .title {
-        font-size: 20px;
+    img {
+        max-height: 92vh;
+        width: auto;
     }
-    .subtitle {
-        font-size: 12px;
+    p strong {
+        display: block;
+        margin-top: 1.5em;
+        margin-bottom: -1em;
     }
-    .container {
-        padding-left: 15px;
-        padding-right: 15px;
+    h1 {
+        font-size: 36px;
     }
-}
-p strong {
-  display: block;
-  margin-top: 1.5em;
-  margin-bottom: -1em;
-}
-h1 {
-    font-size: 36px;
-}
-img {
-  margin-top: -.5em;
-  margin-bottom: -.5em;
-}
+    img {
+        margin-top: -.5em;
+        margin-bottom: -.5em;
+    }
     div.sitenav { display: flex; flex-direction: row; flex-wrap: wrap; }
     span.navlink { flex: 1; }
     span.navlink-label { display: inline-block; min-width: 4em; }
-
-        #sidebar.active {
-            left: 0;
-        }
-        #content {
-            transition: all 0.3s;
-        }
-        #content.active {
-            margin-left: 300px;
-        }
-        #container ul {
-    margin-top: -15px;
-    margin-bottom: 0px;
-        }
-        .navbar {
-            display: flex;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-        .navbar .title {
-            margin-left: 15px;
-            font-size: 24px;
-            font-weight: bold;
-        }
+    #sidebar.active {
+        left: 0;
+    }
+    #content {
+        transition: all 0.3s;
+    }
+    #content.active {
+        margin-left: 300px;
+    }
+    #container ul {
+        margin-top: -15px;
+        margin-bottom: 0px;
+    }
+    .navbar {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    .navbar .title {
+        margin-left: 15px;
+        font-size: 24px;
+        font-weight: bold;
+    }
     .navbar-content {
         display: flex;
         align-items: flex-start;
         flex-wrap: wrap;
     }
-        .title-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start; /* Aligns the subtitle with the title's baseline */
-            margin-top:-5px;
+    .title-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top:-5px;
+    }
+    .subtitle {
+        font-size: 14px;
+        margin-top: -3px;
+        margin-left: 15px;
+    }
+
+    @media (max-width: 768px) {
+        #content {
+            margin-left: 0;
+            width: 100%;
+        }
+        .navbar .title {
+            font-size: 20px;
         }
         .subtitle {
-            font-size: 14px;
-            margin-top: -3px;
-            margin-left: 15px; /* Added margin-left for consistent alignment */
+            font-size: 12px;
+        }
+        .container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        #sidebarCollapse {
+            display: block;
+        }
     }
-    </style>
+</style>
 </head>
 <body>
 
@@ -122,7 +127,6 @@ img {
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-    // Function to load HTML content
     function loadHTML(url, elementId) {
         fetch(url)
             .then(response => response.text())
@@ -133,35 +137,23 @@ img {
             .catch(error => console.error('Error loading HTML:', error));
     }
 
-    // Function to reinitialize collapse functionality
     function reinitializeCollapse() {
         $('.collapse').collapse({
             toggle: false
         });
     }
 
-    // Function to toggle sidebar
     function toggleSidebar() {
         $('#sidebar').toggleClass('active');
         $('#content').toggleClass('active');
-        $('#sidebar-toggle').toggleClass('active');
     }
 
     $(document).ready(function() {
-        // Load sidebar
         loadHTML('sidebar.html', 'sidebar-container');
 
-        // Sidebar toggle for both hamburger and arrow
-        $(document).on('click', '#sidebarCollapse, #sidebar-toggle', function() {
+        // Sidebar toggle for hamburger menu
+        $('#sidebarCollapse').on('click', function() {
             toggleSidebar();
-            
-            // Close sidebar when clicking outside on mobile
-            if ($(window).width() <= 768) {
-                $('#content').on('click', function() {
-                    $('#sidebar').removeClass('active');
-                    $('#content').removeClass('active');
-                });
-            }
         });
 
         // Collapse toggle
@@ -171,54 +163,10 @@ img {
             $(target).collapse('toggle');
         });
 
-        // Handle window resize
-        $(window).resize(function() {
-            if ($(window).width() > 768) {
-                $('#sidebar').removeClass('active');
-                $('#content').removeClass('active');
-            }
-        });
-    });
-</script><script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-    function loadHTML(url, elementId) {
-        fetch(url)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById(elementId).innerHTML = data;
-                reinitializeCollapse();
-            })
-            .catch(error => console.error('Error loading HTML:', error));
-    }
-
-    function reinitializeCollapse() {
-        $('.collapse').collapse({
-            toggle: false
-        });
-    }
-
-    function toggleSidebar() {
-        $('#sidebar').toggleClass('active');
-        $('#content').toggleClass('active');
-    }
-
-    $(document).ready(function() {
-        loadHTML('sidebar.html', 'sidebar-container');
-
-        $(document).on('click', '#sidebarCollapse, #sidebar-toggle', function() {
-            toggleSidebar();
-        });
-
-        $(document).on('click', '[data-bs-toggle="collapse"]', function(e) {
-            e.preventDefault();
-            var target = $(this).attr('data-bs-target') || $(this).attr('href');
-            $(target).collapse('toggle');
-        });
-
+        // Close sidebar when clicking outside on mobile
         $(document).on('click', function(event) {
-            if (!$(event.target).closest('#sidebar').length && !$(event.target).is('#sidebarCollapse')) {
+            var windowWidth = $(window).width();
+            if (windowWidth <= 768 && !$(event.target).closest('#sidebar').length && !$(event.target).is('#sidebarCollapse')) {
                 $('#sidebar').removeClass('active');
                 $('#content').removeClass('active');
             }
