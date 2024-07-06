@@ -158,16 +158,6 @@
         margin-left: 0;
         width: 100%;
     }
-    .navbar .title {
-        font-size: 20px;
-    }
-    .subtitle {
-        font-size: 12px;
-    }
-    .container {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
 }
 </style>
 </head>
@@ -242,8 +232,7 @@
 
         // Close sidebar when clicking outside on mobile
         $(document).on('click', function(event) {
-            var windowWidth = $(window).width();
-            if (windowWidth <= 768 && !$(event.target).closest('#sidebar').length && !$(event.target).is('#sidebarCollapse')) {
+            if ($(window).width() <= 768 && !$(event.target).closest('#sidebar').length && !$(event.target).is('#sidebarCollapse')) {
                 $('#sidebar').removeClass('active');
                 $('#content').removeClass('active');
             }
