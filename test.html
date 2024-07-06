@@ -80,7 +80,16 @@ img {
 	@media (max-width: 1080px) {
     #content {
         margin-left: 0;
-        width: 100%;
+    }
+    .navbar .title {
+        font-size: 20px;
+    }
+    .subtitle {
+        font-size: 12px;
+    }
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
     </style>
@@ -143,7 +152,17 @@ img {
         loadHTML('sidebar.html', 'sidebar-container');
 
         // Sidebar toggle for both hamburger and arrow
-        $(document).on('click', '#sidebarCollapse, #sidebar-toggle', toggleSidebar);
+        $(document).on('click', '#sidebarCollapse, #sidebar-toggle', function() {
+            toggleSidebar();
+            
+            // Close sidebar when clicking outside on mobile
+            if ($(window).width() <= 1080) {
+                $('#content').on('click', function() {
+                    $('#sidebar').removeClass('active');
+                    $('#content').removeClass('active');
+                });
+            }
+        });
 
         // Collapse toggle
         $(document).on('click', '[data-bs-toggle="collapse"]', function(e) {
@@ -152,9 +171,9 @@ img {
             $(target).collapse('toggle');
         });
 
-        // Close sidebar when clicking outside on mobile
-        $(document).on('click', function(event) {
-            if ($(window).width() <= 768 && !$(event.target).closest('#sidebar').length && !$(event.target).is('#sidebarCollapse')) {
+        // Handle window resize
+        $(window).resize(function() {
+            if ($(window).width() > 768) {
                 $('#sidebar').removeClass('active');
                 $('#content').removeClass('active');
             }
