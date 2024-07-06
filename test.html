@@ -152,13 +152,31 @@ img {
         loadHTML('sidebar.html', 'sidebar-container');
 
         // Sidebar toggle for both hamburger and arrow
-        $(document).on('click', '#sidebarCollapse, #sidebar-toggle', toggleSidebar);
+        $(document).on('click', '#sidebarCollapse, #sidebar-toggle', function() {
+            toggleSidebar();
+            
+            // Close sidebar when clicking outside on mobile
+            if ($(window).width() <= 768) {
+                $('#content').on('click', function() {
+                    $('#sidebar').removeClass('active');
+                    $('#content').removeClass('active');
+                });
+            }
+        });
 
         // Collapse toggle
         $(document).on('click', '[data-bs-toggle="collapse"]', function(e) {
             e.preventDefault();
             var target = $(this).attr('data-bs-target') || $(this).attr('href');
             $(target).collapse('toggle');
+        });
+
+        // Handle window resize
+        $(window).resize(function() {
+            if ($(window).width() > 768) {
+                $('#sidebar').removeClass('active');
+                $('#content').removeClass('active');
+            }
         });
     });
 </script>
