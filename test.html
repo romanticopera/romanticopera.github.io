@@ -44,7 +44,7 @@ img {
             transition: all 0.3s;
         }
         #content.active {
-            margin-left: 300px;
+            margin-left: 13px;
         }
         #container ul {
     margin-top: -15px;
@@ -77,7 +77,7 @@ img {
             margin-top: -3px;
             margin-left: 15px; /* Added margin-left for consistent alignment */
     }
-	@media (max-width: 1080px) {
+	@media (max-width: 900px) {
     #content {
         margin-left: 0;
     }
@@ -88,8 +88,8 @@ img {
         font-size: 12px;
     }
     .container {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
     </style>
@@ -156,7 +156,7 @@ img {
             toggleSidebar();
             
             // Close sidebar when clicking outside on mobile
-            if ($(window).width() <= 1080) {
+            if ($(window).width() <= 900) {
                 $('#content').on('click', function() {
                     $('#sidebar').removeClass('active');
                     $('#content').removeClass('active');
@@ -173,7 +173,7 @@ img {
 
         // Handle window resize
         $(window).resize(function() {
-            if ($(window).width() > 768) {
+            if ($(window).width() > 900) {
                 $('#sidebar').removeClass('active');
                 $('#content').removeClass('active');
             }
