@@ -21,7 +21,7 @@ img {
     max-height: 92vh;
     width: auto;
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     #content {
         margin-left: 0;
     }
@@ -179,7 +179,53 @@ img {
             }
         });
     });
+</script><script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function loadHTML(url, elementId) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById(elementId).innerHTML = data;
+                reinitializeCollapse();
+            })
+            .catch(error => console.error('Error loading HTML:', error));
+    }
+
+    function reinitializeCollapse() {
+        $('.collapse').collapse({
+            toggle: false
+        });
+    }
+
+    function toggleSidebar() {
+        $('#sidebar').toggleClass('active');
+        $('#content').toggleClass('active');
+    }
+
+    $(document).ready(function() {
+        loadHTML('sidebar.html', 'sidebar-container');
+
+        $(document).on('click', '#sidebarCollapse, #sidebar-toggle', function() {
+            toggleSidebar();
+        });
+
+        $(document).on('click', '[data-bs-toggle="collapse"]', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('data-bs-target') || $(this).attr('href');
+            $(target).collapse('toggle');
+        });
+
+        $(document).on('click', function(event) {
+            if (!$(event.target).closest('#sidebar').length && !$(event.target).is('#sidebarCollapse')) {
+                $('#sidebar').removeClass('active');
+                $('#content').removeClass('active');
+            }
+        });
+    });
 </script>
+
 
 </body>
 </html>
