@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Romantic Opera: The Techniques & Styles of Nineteenth-Century Composers</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -100,6 +100,48 @@
 				max-width: none;
 			}
 		}
+		@media (max-width: 576px) {
+			body, html {
+				width: 100%;
+				overflow-x: hidden;
+			}
+			#content {
+				width: 100% !important;
+				margin-left: 0 !important;
+				padding-left: 0;
+				padding-right: 0;
+			}
+			.container {
+				width: 100%;
+				max-width: none;
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+			#sidebar {
+				width: 100%;
+				left: -100%;
+				}
+			#sidebar.active {
+				left: 0;
+				}
+			body, #content, .container, .row {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+			}
+			.container > * {
+			padding-left: 15px;
+			padding-right: 15px;
+			}
+		}
+		@media (max-width: 320px) {
+			.container, .container-fluid {
+				min-width: 100%;
+				padding-left: 10px;
+				padding-right: 10px;
+		}
+}
 
     </style>
 </head>
