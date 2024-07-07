@@ -17,25 +17,26 @@
             transition: all 0.3s;
             background: #f8f9fa;
         }
-img {
-    max-height: 92vh;
-    width: auto;
-}
-p strong {
-  display: block;
-  margin-top: 1.5em;
-  margin-bottom: -1em;
-}
-h1 {
-    font-size: 36px;
-}
-img {
-  margin-top: -.5em;
-  margin-bottom: -.5em;
-}
-    div.sitenav { display: flex; flex-direction: row; flex-wrap: wrap; }
-    span.navlink { flex: 1; }
-    span.navlink-label { display: inline-block; min-width: 4em; }
+		img {
+			max-height: 92vh;
+			width: auto;
+		}
+		p strong {
+			display: block;
+			margin-top: 1.5em;
+			margin-bottom: -1em;
+		}
+		h1 {
+			font-size: 36px;
+		}
+		img {
+			margin-top: -.5em;
+			margin-bottom: -.5em;
+		}
+		
+		div.sitenav { display: flex; flex-direction: row; flex-wrap: wrap; }
+		span.navlink { flex: 1; }
+		span.navlink-label { display: inline-block; min-width: 4em; }
 
         #sidebar.active {
             left: 0;
@@ -47,8 +48,8 @@ img {
             margin-left: 300px;
         }
         #container ul {
-    margin-top: -15px;
-    margin-bottom: 0px;
+			margin-top: -15px;
+			margin-bottom: 0px;
         }
         .navbar {
             display: flex;
@@ -76,28 +77,28 @@ img {
             font-size: 14px;
             margin-top: -3px;
             margin-left: 15px; /* Added margin-left for consistent alignment */
-    }
-	@media (max-width: 768px) {
-    #content {
-        margin-left: 0;
-		width: 98%;
-    }
-	#sidebar {
-		padding-top: 75px;
-	}
-    .navbar .title {
-        font-size: 14px;
-    }
-    .subtitle {
-        font-size: 10px;
-    }
-    .container {
-        padding-left: 0px;
-        padding-right: 0px;
-		width: 98%;
-		max-width: none;
-    }
-	}
+		}
+		@media (max-width: 768px) {
+			#content {
+				margin-left: 0;
+				width: 98%;
+			}
+			#sidebar {
+				padding-top: 75px;
+			}
+			.navbar .title {
+				font-size: 14px;
+			}
+			.subtitle {
+				font-size: 10px;
+			}
+			.container {
+				padding-left: 0px;
+				padding-right: 0px;
+				width: 98%;
+				max-width: none;
+			}
+		}
 
     </style>
 </head>
@@ -160,8 +161,8 @@ img {
     }
 
     // Function to handle menu item clicks
-    function handleMenuItemClick() {
-        if ($(window).width() <= 900) {
+    function handleMenuItemClick(event) {
+        if ($(window).width() <= 900 && !$(event.target).hasClass('dropdown-toggle')) {
             $('#sidebar').removeClass('active');
             $('#content').removeClass('active');
             $('body').removeClass('sidebar-open');
@@ -177,9 +178,9 @@ img {
             toggleSidebar();
         });
 
-        // Close sidebar when clicking menu items on mobile
-        $(document).on('click', '#sidebar a', function(e) {
-            handleMenuItemClick();
+        // Close sidebar when clicking menu items on mobile, except for dropdown toggles
+        $(document).on('click', '#sidebar a:not(.dropdown-toggle)', function(e) {
+            handleMenuItemClick(e);
         });
 
         // Collapse toggle
@@ -187,7 +188,10 @@ img {
             e.preventDefault();
             var target = $(this).attr('data-bs-target') || $(this).attr('href');
             $(target).collapse('toggle');
-            handleMenuItemClick();
+            // Don't close sidebar for dropdown toggles
+            if (!$(this).hasClass('dropdown-toggle')) {
+                handleMenuItemClick(e);
+            }
         });
 
         // Handle window resize
