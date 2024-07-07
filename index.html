@@ -80,6 +80,10 @@
             margin-left: 8px; /* Added margin-left for consistent alignment */
 		}
 		@media (max-width: 768px) {
+			body, html {
+				width: 100%;
+				overflow-x: hidden;
+			}
 			#content {
 				margin-left: 0;
 				width: 98%;
@@ -134,14 +138,6 @@
 			padding-left: 15px;
 			padding-right: 15px;
 			}
-		}
-		@media (max-width: 320px) {
-			.container, .container-fluid {
-				min-width: 100%;
-				padding-left: 10px;
-				padding-right: 10px;
-		}
-}
 
     </style>
 </head>
